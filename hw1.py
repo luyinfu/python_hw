@@ -71,34 +71,22 @@ import re
 with open('lorem.txt', 'r') as file:
     f = file.read().replace('\n', '') #open the file and save it as a string
 
-N1=0
-for i in f:
-    ## Match if length is between 1 and 4
-    length1 = re.match('([a-z]{1,4})', i)
-    if length1:
-        N1+=1
-print(N1)
+N1=len(re.findall('([a-z]{1,4})',f))
+print("1:4", N1)
 
-N2=0
-for i in f:
-    ## Match if length is between 4 and 7
-    length1 = re.match('([a-z]{4,7})', i)
-    if length1:
-        N2+=1
-print(N2)
+
+N2=len(re.findall('([a-z]{4,7})',f))
+print("4:7", N2)
+
+N3=len(re.findall('([a-z]{8,})',f))
+print("lgreater than 8:", N3)
 
 
 
 
 ## (b)
-n=0
-for i in f:
-    # Match if has uppercase letter
-    m = re.match('[A-Z]+', i)
-    if m: 
-        n+=1
+n=len(re.findall(r"[A-Z]+",f))
 print(n)
-
 
 
 
