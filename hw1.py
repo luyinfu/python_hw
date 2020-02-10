@@ -71,10 +71,35 @@ import re
 with open('lorem.txt', 'r') as file:
     f = file.read().replace('\n', '') #open the file and save it as a string
 
+N1=0
+for i in f:
+    ## Match if length is between 1 and 4
+    length1 = re.match('([a-z]{1,4})', i)
+    if length1:
+        N1+=1
+print(N1)
+
+N2=0
+for i in f:
+    ## Match if length is between 4 and 7
+    length1 = re.match('([a-z]{4,7})', i)
+    if length1:
+        N2+=1
+print(N2)
+
+
+
+
 ## (b)
-result = re.match('([A-Z]+)', f)
-print(result)
-#pat = re.compile('([A-Z][a-z]+)|\W([a-z]{5})\W')
+n=0
+for i in f:
+    # Match if has uppercase letter
+    m = re.match('[A-Z]+', i)
+    if m: 
+        n+=1
+print(n)
+
+
 
 
 
